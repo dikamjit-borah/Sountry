@@ -25,6 +25,9 @@ A one-in-all integrated social media platform for musicians to connect with one 
   * Heroku
 
 ## System Design
+
+![db_design](https://github.com/hunkyxstudman/Musico/blob/main/db_design.png)
+<br>
 Our database will consist of the following tables
 * USERS
   * This is the table that will contain the personal details and preferences of our users
