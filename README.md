@@ -27,7 +27,7 @@ A one-in-all integrated social media platform for musicians to connect with one 
 ## System Design
 Our database will consist of the following tables
 * USERS
- * This is the table that will contain the personal details and preferences of our users
+  * This is the table that will contain the personal details and preferences of our users
 * VIDEOS
  * This table will contain details of the videos that are uploaded by the users. The actual video will be stored in another cloud service like S3 or Firebase and the link will be present in the vid_link of this table
 * CONNECTIONS
