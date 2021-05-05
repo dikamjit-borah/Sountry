@@ -42,5 +42,11 @@ Our database will consist of the following tables
   *   If request is rejected, we will simply remove that entire entry from the CONNECTIONS table.
  
 
+## Commit History
+
+* commit#1 05-05-21 
+  * Bottom navigation bar + fragment transaction in dashboard activity
+
+
 ## License
 Copyright © 2021, Dikamjit Borah. All rights reserved.
