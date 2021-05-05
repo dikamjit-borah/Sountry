@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bottom_nav_icon_size">24dp</dimen>
+    <dimen name="bottom_nav_icon_margins">6dp</dimen>
+    <dimen name="bottom_nav_add_icon_size">52dp</dimen>
+    <dimen name="toolbar_margin">14dp</dimen>
+    <dimen name="toolbar_title">28sp</dimen>
+</resources>
