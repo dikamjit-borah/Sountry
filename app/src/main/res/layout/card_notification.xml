@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    app:cardElevation="8dp"
+    app:cardCornerRadius="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/global_margin"
+    >
+  <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+      <LinearLayout
+          android:gravity="center"
+          android:orientation="horizontal"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+
+          <ImageView
+              android:layout_margin="@dimen/global_margin"
+              android:layout_width="64dp"
+              android:layout_height="64dp"
+              android:src="@drawable/avatar">
+
+          </ImageView>
+          <LinearLayout
+              android:layout_margin="@dimen/global_margin"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+              <TextView
+                  android:textSize="@dimen/card_title"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text="User name"
+                  android:textColor="@color/secondary">
+
+              </TextView>
+              <HorizontalScrollView
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content">
+
+                  <LinearLayout
+                      android:id="@+id/ll_tagsParent_acp"
+                      android:orientation="horizontal"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <include layout="@layout/layout_genre">
+
+                      </include>
+                      <include layout="@layout/layout_genre">
+
+                      </include>
+
+                  </LinearLayout>
+              </HorizontalScrollView>
+          </LinearLayout>
+
+      </LinearLayout>
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+          <androidx.appcompat.widget.AppCompatButton
+              android:layout_marginRight="1dp"
+              android:layout_weight="1"
+              android:layout_width="0dp"
+
+              android:layout_height="wrap_content"
+
+              android:layout_marginTop="@dimen/global_margin"
+              android:background="@color/primary"
+              android:padding="@dimen/btn_padding"
+              android:text="Accept connection"
+              android:textColor="@color/white">
+
+          </androidx.appcompat.widget.AppCompatButton>
+          <androidx.appcompat.widget.AppCompatButton
+
+              android:layout_marginLeft="1dp"
+              android:layout_weight="1"
+              android:layout_width="0dp"
+
+              android:layout_height="wrap_content"
+
+              android:layout_marginTop="@dimen/global_margin"
+              android:background="@color/secondaryLight"
+              android:padding="@dimen/btn_padding"
+              android:text="Reject request"
+              android:textColor="@color/white">
+
+          </androidx.appcompat.widget.AppCompatButton>
+      </LinearLayout>
+  </LinearLayout>
+</androidx.cardview.widget.CardView>
