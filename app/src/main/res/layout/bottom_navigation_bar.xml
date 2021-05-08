@@ -2,63 +2,98 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="@dimen/bottom_nav_height"
     android:layout_gravity="center"
     android:gravity="center"
     android:background="@color/primaryLight"
     >
-    <ImageView
+    <LinearLayout
         android:id="@+id/iv_feed_btb"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/bottom_nav_icon_layout_padding"
+        android:paddingRight="@dimen/bottom_nav_icon_layout_padding"
+        android:gravity="center"
+        >
+    <ImageView
         android:layout_weight="1"
-        android:layout_margin="@dimen/bottom_nav_icon_margins"
         android:layout_width="@dimen/bottom_nav_icon_size"
         android:layout_height="@dimen/bottom_nav_icon_size"
         android:src="@drawable/home"
         app:tint="@color/white">
 
     </ImageView>
-    <ImageView
+</LinearLayout>
+    <LinearLayout
         android:id="@+id/iv_connections_btb"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/bottom_nav_icon_layout_padding"
+        android:paddingRight="@dimen/bottom_nav_icon_layout_padding"
+        android:gravity="center"
+        >
+    <ImageView
         android:layout_weight="1"
-        android:layout_margin="@dimen/bottom_nav_icon_margins"
         android:layout_width="@dimen/bottom_nav_icon_size"
         android:layout_height="@dimen/bottom_nav_icon_size"
         android:src="@drawable/connections"
         app:tint="@color/white">
 
     </ImageView>
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/bottom_nav_icon_layout_padding"
+        android:paddingRight="@dimen/bottom_nav_icon_layout_padding"
+        android:gravity="center"
+        >
     <ImageView
-
         android:layout_weight="1"
-        android:layout_margin="@dimen/bottom_nav_icon_margins"
         android:layout_width="@dimen/bottom_nav_add_icon_size"
         android:layout_height="@dimen/bottom_nav_add_icon_size"
         android:src="@drawable/add"
         >
 
     </ImageView>
+    </LinearLayout>
 
-    <ImageView
+    <LinearLayout
         android:id="@+id/iv_notifications_btb"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/bottom_nav_icon_layout_padding"
+        android:paddingRight="@dimen/bottom_nav_icon_layout_padding"
+        android:gravity="center"
+        >
+    <ImageView
         android:layout_weight="1"
-        android:layout_margin="@dimen/bottom_nav_icon_margins"
         android:layout_width="@dimen/bottom_nav_icon_size"
         android:layout_height="@dimen/bottom_nav_icon_size"
         android:src="@drawable/notification"
         app:tint="@color/white">
 
     </ImageView>
-    <ImageView
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/iv_profile_btb"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/bottom_nav_icon_layout_padding"
+        android:paddingRight="@dimen/bottom_nav_icon_layout_padding"
+        android:gravity="center"
+        >
+    <ImageView
         android:layout_weight="1"
-        android:layout_margin="@dimen/bottom_nav_icon_margins"
         android:layout_width="@dimen/bottom_nav_icon_size"
         android:layout_height="@dimen/bottom_nav_icon_size"
         android:src="@drawable/profile"
         app:tint="@color/white">
 
     </ImageView>
+    </LinearLayout>
 
 
 

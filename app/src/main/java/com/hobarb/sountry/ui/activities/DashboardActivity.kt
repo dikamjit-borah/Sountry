@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import com.hobarb.sountry.R
 import com.hobarb.sountry.ui.fragments.ConnectionsFragment
@@ -24,19 +25,19 @@ class DashboardActivity : AppCompatActivity() {
         val profileFragment = ProfileFragment()
 
         changeFragment(feedFragment, resources.getString(R.string.feed)); //default page of user dashboard
-        bottomNavBar.findViewById<ImageView>(R.id.iv_feed_btb).setOnClickListener {
+        bottomNavBar.findViewById<LinearLayout>(R.id.iv_feed_btb).setOnClickListener {
             changeFragment(feedFragment, resources.getString(R.string.feed))
         }
 
-        bottomNavBar.findViewById<ImageView>(R.id.iv_connections_btb).setOnClickListener {
+        bottomNavBar.findViewById<LinearLayout>(R.id.iv_connections_btb).setOnClickListener {
             changeFragment(connectionsFragment, resources.getString(R.string.connections))
         }
 
-        bottomNavBar.findViewById<ImageView>(R.id.iv_notifications_btb).setOnClickListener {
+        bottomNavBar.findViewById<LinearLayout>(R.id.iv_notifications_btb).setOnClickListener {
             changeFragment(notificationsFragment, resources.getString(R.string.notifications))
         }
 
-        bottomNavBar.findViewById<ImageView>(R.id.iv_profile_btb).setOnClickListener {
+        bottomNavBar.findViewById<LinearLayout>(R.id.iv_profile_btb).setOnClickListener {
             changeFragment(profileFragment, resources.getString(R.string.profile))
         }
 
