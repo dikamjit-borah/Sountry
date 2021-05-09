@@ -5,7 +5,7 @@
     android:layout_height="@dimen/bottom_nav_height"
     android:layout_gravity="center"
     android:gravity="center"
-    android:background="@color/primaryLight"
+    android:background="@drawable/bottom_nav_bar"
     >
     <LinearLayout
         android:id="@+id/iv_feed_btb"
@@ -19,7 +19,7 @@
         android:layout_weight="1"
         android:layout_width="@dimen/bottom_nav_icon_size"
         android:layout_height="@dimen/bottom_nav_icon_size"
-        android:src="@drawable/home"
+        android:src="@drawable/house"
         app:tint="@color/white">
 
     </ImageView>
@@ -36,7 +36,7 @@
         android:layout_weight="1"
         android:layout_width="@dimen/bottom_nav_icon_size"
         android:layout_height="@dimen/bottom_nav_icon_size"
-        android:src="@drawable/connections"
+        android:src="@drawable/peoples"
         app:tint="@color/white">
 
     </ImageView>
