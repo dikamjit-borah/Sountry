@@ -1,17 +1,15 @@
-package com.hobarb.sountry.ui.activities
+package com.hobarb.sountry.ui.user.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.FrameLayout
-import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import com.hobarb.sountry.R
-import com.hobarb.sountry.ui.fragments.ConnectionsFragment
-import com.hobarb.sountry.ui.fragments.FeedFragment
-import com.hobarb.sountry.ui.fragments.NotificationsFragment
-import com.hobarb.sountry.ui.fragments.ProfileFragment
+import com.hobarb.sountry.ui.user.fragments.ConnectionsFragment
+import com.hobarb.sountry.ui.user.fragments.FeedFragment
+import com.hobarb.sountry.ui.user.fragments.NotificationsFragment
+import com.hobarb.sountry.ui.user.fragments.ProfileFragment
 
 class DashboardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

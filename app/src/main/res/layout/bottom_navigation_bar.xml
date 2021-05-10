@@ -19,7 +19,7 @@
         android:layout_weight="1"
         android:layout_width="@dimen/bottom_nav_icon_size"
         android:layout_height="@dimen/bottom_nav_icon_size"
-        android:src="@drawable/house"
+        android:src="@drawable/ic_baseline_home_24"
         app:tint="@color/white">
 
     </ImageView>
@@ -36,7 +36,7 @@
         android:layout_weight="1"
         android:layout_width="@dimen/bottom_nav_icon_size"
         android:layout_height="@dimen/bottom_nav_icon_size"
-        android:src="@drawable/peoples"
+        android:src="@drawable/ic_baseline_people_24"
         app:tint="@color/white">
 
     </ImageView>
@@ -71,7 +71,7 @@
         android:layout_weight="1"
         android:layout_width="@dimen/bottom_nav_icon_size"
         android:layout_height="@dimen/bottom_nav_icon_size"
-        android:src="@drawable/notification"
+        android:src="@drawable/ic_baseline_notifications_active_24"
         app:tint="@color/white">
 
     </ImageView>
@@ -89,7 +89,7 @@
         android:layout_weight="1"
         android:layout_width="@dimen/bottom_nav_icon_size"
         android:layout_height="@dimen/bottom_nav_icon_size"
-        android:src="@drawable/profile"
+        android:src="@drawable/ic_baseline_person_pin_24"
         app:tint="@color/white">
 
     </ImageView>

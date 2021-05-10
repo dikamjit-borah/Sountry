@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".ui.signup.activities.DetailsActivity"
+    android:layout_margin="@dimen/global_margin"
+    >
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_next_ac_details"
+        android:layout_gravity="bottom"
+        android:layout_marginRight="1dp"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="@dimen/global_margin"
+        android:background="@color/primary"
+        android:padding="@dimen/btn_padding"
+        android:text="Next"
+        android:textColor="@color/white">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+</LinearLayout>
