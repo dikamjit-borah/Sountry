@@ -85,10 +85,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <include layout="@layout/layout_male_signup">
+            <include
+                android:id="@+id/inc_male_ac_prefs"
+                layout="@layout/layout_male_signup">
 
             </include>
-            <include layout="@layout/layout_female_signup">
+            <include
+                android:id="@+id/inc_female_ac_prefs"
+                layout="@layout/layout_female_signup">
 
             </include>
 
@@ -99,11 +103,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
+        android:layout_margin="@dimen/global_margin"
         android:layout_gravity="bottom"
 
-        android:layout_marginTop="@dimen/global_margin"
-
-        android:layout_marginRight="1dp"
         android:background="@color/primary"
         android:padding="@dimen/btn_padding"
         android:text="Submit"

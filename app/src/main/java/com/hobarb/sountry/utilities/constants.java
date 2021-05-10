@@ -21,4 +21,6 @@ public class constants {
             "Rock",
             "Techno"
     ));
+
+    public static ArrayList<String> user_selected_genres = new ArrayList<>();
 }

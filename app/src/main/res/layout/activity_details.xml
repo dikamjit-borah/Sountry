@@ -4,21 +4,134 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:orientation="vertical"
     tools:context=".ui.signup.activities.DetailsActivity"
     android:layout_margin="@dimen/global_margin"
     >
+    <LinearLayout
+        android:layout_margin="@dimen/global_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_next_ac_details"
-        android:layout_gravity="bottom"
-        android:layout_marginRight="1dp"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter your details"
+            android:textColor="@color/primaryDark"
+            android:textSize="@dimen/card_title">
+
+        </TextView>
+
+        <View
+            android:layout_width="match_parent"
+
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="@color/primaryDark">
+
+        </View>
+    </LinearLayout>
+    <LinearLayout
+
+
         android:layout_weight="1"
-        android:layout_width="0dp"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/global_margin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.google.android.material.textfield.TextInputLayout
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+
+
+                
+                android:singleLine="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+
+                android:hint="Enter your full name"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+
+
+                
+                android:singleLine="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+
+                android:hint="Enter preferred username"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+
+
+                
+                android:singleLine="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+
+                android:hint="Enter contact number"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+
+
+                
+                android:singleLine="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+
+                android:hint="Enter email"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+
+
+                
+                android:singleLine="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+
+                android:hint="Select your gender"/>
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+    <androidx.appcompat.widget.AppCompatButton
+
+        android:id="@+id/btn_next_ac_details"
+        android:layout_margin="@dimen/global_margin"
+        android:layout_gravity="bottom"
+
+        android:layout_width="match_parent"
 
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="@dimen/global_margin"
+
         android:background="@color/primary"
         android:padding="@dimen/btn_padding"
         android:text="Next"

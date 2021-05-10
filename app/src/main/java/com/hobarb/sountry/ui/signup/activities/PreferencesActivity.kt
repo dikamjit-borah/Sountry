@@ -1,5 +1,6 @@
 package com.hobarb.sountry.ui.signup.activities
 
+import android.graphics.Color
 import android.os.Bundle
 import android.text.Layout
 import android.view.Gravity
@@ -18,16 +19,27 @@ import java.util.*
 
 class PreferencesActivity : AppCompatActivity() {
     lateinit var genres_gv: GridView
+    lateinit var male_inc:View
+    lateinit var female_inc:View
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_preferences)
 
-         genres_gv = findViewById<GridView>(R.id.gv_genres_ac_prefs);
+        genres_gv = findViewById<GridView>(R.id.gv_genres_ac_prefs)
+        male_inc = findViewById(R.id.inc_male_ac_prefs)
+        female_inc = findViewById(R.id.inc_female_ac_prefs)
 
-    val gridAdapter = GridAdapter(this, constants.genres);
-        genres_gv.adapter = gridAdapter;
-    //inflateGenres(genres_gv)
+        val gridAdapter = GridAdapter(this, constants.genres)
+        genres_gv.adapter = gridAdapter
 
+        male_inc.setOnClickListener{
+            male_inc.setBackgroundColor(Color.parseColor("#90caf9"))
+        }
+
+        female_inc.setOnClickListener{
+            female_inc.setBackgroundColor(Color.parseColor("#ffe082"))
+        }
     }
 
     private fun inflateGenres(layout: GridView) {
@@ -36,8 +48,9 @@ class PreferencesActivity : AppCompatActivity() {
         for (i in constants.genres.indices) {
 
 
-            val genre:View = LayoutInflater.from(applicationContext).inflate(R.layout.layout_genre_signup, null)
-            genre.findViewById<TextView>(R.id.tv_lay_genreSignUp).setText(constants.genres.get(i))
+            val genre: View =
+                LayoutInflater.from(applicationContext).inflate(R.layout.layout_genre_signup, null)
+            genre.findViewById<TextView>(R.id.tv_lay_genreSignUp).text = constants.genres.get(i)
             layout.addView(genre)
         }
 
