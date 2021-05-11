@@ -19,8 +19,9 @@
     <dimen name="feed_mr_lr">10dp</dimen>
     <dimen name="font_size_1">16dp</dimen>
     <dimen name="radius1">26dp</dimen>
-    <dimen name="genere_padding_lr">6dp</dimen>
-    <dimen name="genere_padding_tb">2dp</dimen>
+    <dimen name="radius2">16dp</dimen>
+    <dimen name="genre_padding_lr">8dp</dimen>
+    <dimen name="genre_padding_tb">4dp</dimen>
 
 
 

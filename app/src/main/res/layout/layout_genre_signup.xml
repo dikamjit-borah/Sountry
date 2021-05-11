@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    android:layout_margin="3dp"
-    android:paddingLeft="6dp"
-    android:paddingRight="6dp"
-    android:gravity="center"
-    android:layout_gravity="center"
-    android:background="@drawable/tag_bg_orange"
+
+    android:padding="@dimen/global_padding"
+    android:layout_margin="@dimen/global_margin"
+    android:background="@drawable/bg_genre_signup"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="wrap_content"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
 
     <TextView
 
+
+        android:layout_margin="@dimen/global_margin"
+
+        android:id="@+id/tv_lay_genreSignUp"
         android:layout_gravity="center"
         android:gravity="center"
         android:paddingLeft="@dimen/genre_padding_lr"
@@ -20,9 +23,9 @@
         android:paddingTop="@dimen/genre_padding_tb"
         android:paddingBottom="@dimen/genre_padding_tb"
         android:textColor="@color/secondaryLight"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Pop">
+        android:text="Rock">
 
     </TextView>
 </LinearLayout>

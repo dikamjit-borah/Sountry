@@ -1,100 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="@dimen/bottom_nav_height"
-    android:layout_gravity="center"
-    android:gravity="center"
-    android:background="@drawable/bottom_nav_bar"
-    >
-    <LinearLayout
-        android:id="@+id/iv_feed_btb"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:paddingLeft="@dimen/bottom_nav_icon_layout_padding"
-        android:paddingRight="@dimen/bottom_nav_icon_layout_padding"
-        android:gravity="center"
-        >
-    <ImageView
-        android:layout_weight="1"
-        android:layout_width="@dimen/bottom_nav_icon_size"
-        android:layout_height="@dimen/bottom_nav_icon_size"
-        android:src="@drawable/house"
-        app:tint="@color/white">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+  >
+   <androidx.cardview.widget.CardView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
 
-    </ImageView>
-</LinearLayout>
-    <LinearLayout
-        android:id="@+id/iv_connections_btb"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:paddingLeft="@dimen/bottom_nav_icon_layout_padding"
-        android:paddingRight="@dimen/bottom_nav_icon_layout_padding"
-        android:gravity="center"
-        >
-    <ImageView
-        android:layout_weight="1"
-        android:layout_width="@dimen/bottom_nav_icon_size"
-        android:layout_height="@dimen/bottom_nav_icon_size"
-        android:src="@drawable/peoples"
-        app:tint="@color/white">
+       <LinearLayout
+           android:layout_marginTop="12dp"
+           android:orientation="horizontal" android:layout_width="match_parent"
+           android:layout_height="@dimen/bottom_nav_height"
+           android:layout_gravity="center"
+           android:gravity="center"
+           android:background="@drawable/bottom_nav_bar"
+           >
+           <LinearLayout
+               android:id="@+id/iv_feed_btb"
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:paddingLeft="@dimen/bottom_nav_icon_layout_padding"
+               android:paddingRight="@dimen/bottom_nav_icon_layout_padding"
+               android:gravity="center"
+               >
+               <ImageView
+                   android:layout_weight="1"
+                   android:layout_width="@dimen/bottom_nav_icon_size"
+                   android:layout_height="@dimen/bottom_nav_icon_size"
+                   android:src="@drawable/ic_baseline_home_24"
+                   app:tint="@color/white">
 
-    </ImageView>
-    </LinearLayout>
+               </ImageView>
+           </LinearLayout>
+           <LinearLayout
+               android:id="@+id/iv_connections_btb"
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:paddingLeft="@dimen/bottom_nav_icon_layout_padding"
+               android:paddingRight="@dimen/bottom_nav_icon_layout_padding"
+               android:gravity="center"
+               >
+               <ImageView
+                   android:layout_weight="1"
+                   android:layout_width="@dimen/bottom_nav_icon_size"
+                   android:layout_height="@dimen/bottom_nav_icon_size"
+                   android:src="@drawable/ic_baseline_people_24"
+                   app:tint="@color/white">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:paddingLeft="@dimen/bottom_nav_icon_layout_padding"
-        android:paddingRight="@dimen/bottom_nav_icon_layout_padding"
-        android:gravity="center"
-        >
-    <ImageView
-        android:layout_weight="1"
-        android:layout_width="@dimen/bottom_nav_add_icon_size"
-        android:layout_height="@dimen/bottom_nav_add_icon_size"
-        android:src="@drawable/add"
-        >
+               </ImageView>
+           </LinearLayout>
 
-    </ImageView>
-    </LinearLayout>
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:paddingLeft="@dimen/bottom_nav_icon_layout_padding"
+               android:paddingRight="@dimen/bottom_nav_icon_layout_padding"
+               android:gravity="center"
+               >
+               <ImageView
+                   android:visibility="invisible"
+                   android:layout_weight="1"
+                   android:layout_width="@dimen/bottom_nav_add_icon_size"
+                   android:layout_height="@dimen/bottom_nav_add_icon_size"
+                   android:src="@drawable/add"
+                   >
 
-    <LinearLayout
-        android:id="@+id/iv_notifications_btb"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:paddingLeft="@dimen/bottom_nav_icon_layout_padding"
-        android:paddingRight="@dimen/bottom_nav_icon_layout_padding"
-        android:gravity="center"
-        >
-    <ImageView
-        android:layout_weight="1"
-        android:layout_width="@dimen/bottom_nav_icon_size"
-        android:layout_height="@dimen/bottom_nav_icon_size"
-        android:src="@drawable/notification"
-        app:tint="@color/white">
+               </ImageView>
+           </LinearLayout>
 
-    </ImageView>
-    </LinearLayout>
+           <LinearLayout
+               android:id="@+id/iv_notifications_btb"
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:paddingLeft="@dimen/bottom_nav_icon_layout_padding"
+               android:paddingRight="@dimen/bottom_nav_icon_layout_padding"
+               android:gravity="center"
+               >
+               <ImageView
+                   android:layout_weight="1"
+                   android:layout_width="@dimen/bottom_nav_icon_size"
+                   android:layout_height="@dimen/bottom_nav_icon_size"
+                   android:src="@drawable/ic_baseline_notifications_active_24"
+                   app:tint="@color/white">
 
-    <LinearLayout
-        android:id="@+id/iv_profile_btb"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:paddingLeft="@dimen/bottom_nav_icon_layout_padding"
-        android:paddingRight="@dimen/bottom_nav_icon_layout_padding"
-        android:gravity="center"
-        >
-    <ImageView
-        android:layout_weight="1"
-        android:layout_width="@dimen/bottom_nav_icon_size"
-        android:layout_height="@dimen/bottom_nav_icon_size"
-        android:src="@drawable/profile"
-        app:tint="@color/white">
+               </ImageView>
+           </LinearLayout>
 
-    </ImageView>
-    </LinearLayout>
+           <LinearLayout
+               android:id="@+id/iv_profile_btb"
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:paddingLeft="@dimen/bottom_nav_icon_layout_padding"
+               android:paddingRight="@dimen/bottom_nav_icon_layout_padding"
+               android:gravity="center"
+               >
+               <ImageView
+
+                   android:layout_weight="1"
+                   android:layout_width="@dimen/bottom_nav_icon_size"
+                   android:layout_height="@dimen/bottom_nav_icon_size"
+                   android:src="@drawable/ic_baseline_person_pin_24"
+                   app:tint="@color/white">
+
+               </ImageView>
+           </LinearLayout>
 
 
 
-</LinearLayout>
+       </LinearLayout>
+       <androidx.cardview.widget.CardView
+
+
+           app:cardElevation="8dp"
+           app:cardCornerRadius="200dp"
+            app:cardBackgroundColor="@color/secondary"
+           android:layout_width="80dp"
+           android:layout_height="80dp"
+           android:layout_gravity="center"
+           android:layout_marginLeft="@dimen/global_margin"
+           android:layout_marginRight="@dimen/global_margin">
+           <ImageView
+               android:padding="@dimen/global_padding"
+               android:layout_height="72dp"
+               android:layout_width="72dp"
+               android:layout_gravity="center"
+               android:layout_marginLeft="@dimen/global_margin"
+               android:layout_marginRight="@dimen/global_margin"
+
+               android:src="@drawable/add"></ImageView>
+       </androidx.cardview.widget.CardView>
+
+   </androidx.cardview.widget.CardView>
+</RelativeLayout>
