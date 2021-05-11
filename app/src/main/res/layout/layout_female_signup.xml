@@ -32,7 +32,7 @@
         android:textColor="@color/secondaryLight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Female">
+        android:text="@string/female">
 
     </TextView>
 </LinearLayout>

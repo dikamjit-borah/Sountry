@@ -22,5 +22,10 @@ public class constants {
             "Techno"
     ));
 
-    public static ArrayList<String> user_selected_genres = new ArrayList<>();
+    public static ArrayList<String> USER_PREFERRED_GENRES = new ArrayList<>();
+    public static ArrayList<String> USER_PREFERRED_GENDERS = new ArrayList<>();
+
+    public static String GENRES_KEY = "user_preferred_genres";
+    public static String GENDERS_KEY = "user_preferred_genders";
+
 }
