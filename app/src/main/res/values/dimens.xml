@@ -22,7 +22,7 @@
     <dimen name="radius2">16dp</dimen>
     <dimen name="genre_padding_lr">8dp</dimen>
     <dimen name="genre_padding_tb">4dp</dimen>
-
+    <dimen name="componentRadius">6dp</dimen>
 
 
 </resources>

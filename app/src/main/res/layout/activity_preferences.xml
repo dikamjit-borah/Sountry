@@ -107,7 +107,7 @@
         android:layout_margin="@dimen/global_margin"
         android:layout_gravity="bottom"
 
-        android:background="@color/primary"
+        android:background="@drawable/button"
         android:padding="@dimen/btn_padding"
         android:text="Submit"
         android:textColor="@color/white">

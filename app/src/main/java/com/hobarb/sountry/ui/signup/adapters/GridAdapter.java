@@ -57,7 +57,7 @@ public class GridAdapter extends BaseAdapter {
                 {
 
                     constants.USER_PREFERRED_GENRES.add(curr_genre);
-                    view.setBackgroundResource(R.color.primaryLight);
+                    view.setBackgroundResource(R.drawable.bg_genre_signup_selected);
                     textView.setTextColor(Color.parseColor("#FFFFFF"));
                     is_genre_selected[0] = true;
                 }

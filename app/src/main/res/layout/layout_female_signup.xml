@@ -22,7 +22,7 @@
 
         android:layout_margin="@dimen/global_margin"
 
-        android:id="@+id/tv_lay_genreSignUp"
+        android:id="@+id/tv_femaleSignUp"
         android:layout_gravity="center"
         android:gravity="center"
         android:paddingLeft="@dimen/genre_padding_lr"

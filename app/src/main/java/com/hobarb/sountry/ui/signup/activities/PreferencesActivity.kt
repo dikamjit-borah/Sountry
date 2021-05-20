@@ -35,13 +35,15 @@ class PreferencesActivity : AppCompatActivity() {
             if (!is_male_selected)
             {
                 constants.USER_PREFERRED_GENDERS.add(getString(R.string.male))
-                male_inc.setBackgroundColor(Color.parseColor("#90caf9"))
+                male_inc.setBackgroundResource(R.drawable.bg_genre_signup_selected)
+                male_inc.findViewById<TextView>(R.id.tv_maleSignUp).setTextColor(Color.WHITE)
                 is_male_selected = true;
             }
             else
             {
                 constants.USER_PREFERRED_GENDERS.remove(getString(R.string.male))
                 male_inc.setBackgroundResource(R.drawable.bg_gender_signup)
+                male_inc.findViewById<TextView>(R.id.tv_maleSignUp).setTextColor(Color.BLACK)
                 is_male_selected = false;
             }
 
@@ -51,13 +53,15 @@ class PreferencesActivity : AppCompatActivity() {
             {
 
                 constants.USER_PREFERRED_GENDERS.add(getString(R.string.female))
-                female_inc.setBackgroundColor(Color.parseColor("#ffe082"))
+                female_inc.setBackgroundResource(R.drawable.bg_genre_signup_selected)
+                female_inc.findViewById<TextView>(R.id.tv_femaleSignUp).setTextColor(Color.WHITE)
                 is_female_selected = true;
             }
             else
             {
                 constants.USER_PREFERRED_GENDERS.remove(getString(R.string.female))
                 female_inc.setBackgroundResource(R.drawable.bg_gender_signup)
+                female_inc.findViewById<TextView>(R.id.tv_femaleSignUp).setTextColor(Color.BLACK)
                 is_female_selected = false;
             }
 
