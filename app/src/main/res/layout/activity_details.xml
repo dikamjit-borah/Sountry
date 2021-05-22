@@ -137,7 +137,7 @@
         android:layout_height="wrap_content"
 
 
-        android:background="@color/primary"
+        android:background="@drawable/button"
         android:padding="@dimen/btn_padding"
         android:text="Next"
         android:textColor="@color/white">
