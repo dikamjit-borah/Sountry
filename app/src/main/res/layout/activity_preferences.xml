@@ -23,7 +23,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Select your genres"
+                android:text="@string/select_your_genres"
                 android:textColor="@color/primaryDark"
                 android:textSize="@dimen/card_title">
 
