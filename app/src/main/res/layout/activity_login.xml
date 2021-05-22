@@ -88,8 +88,7 @@
                 android:id="@+id/btn_login_ac_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="14dp"
-                android:paddingBottom="14dp"
+
                 android:text="Log in"
                 android:textAllCaps="false"
                 android:background="@drawable/button"

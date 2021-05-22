@@ -1,11 +1,13 @@
 package com.hobarb.sountry.ui.login
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.EditText
 import androidx.appcompat.widget.AppCompatButton
 import com.hobarb.sountry.R
+import com.hobarb.sountry.ui.user.activities.DashboardActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -23,6 +25,11 @@ class LoginActivity : AppCompatActivity() {
                 et_email.error = "Please enter a valid email"
             if (et_password.text.isNullOrEmpty())
                 et_password.error = "Please enter your password"
+            else
+            {
+                startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
+                finish()
+            }
         }
 
 

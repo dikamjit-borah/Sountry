@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "801332817977",
+    "project_id": "sountry-91d1e",
+    "storage_bucket": "sountry-91d1e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:801332817977:android:919e1ca830458555985de8",
+        "android_client_info": {
+          "package_name": "com.hobarb.sountry"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "801332817977-9nlnhchbrmlf0tvnbuj3hfi70g3de328.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hobarb.sountry",
+            "certificate_hash": "5e1da660b88a5393598a04c09a800d3bac0be108"
+          }
+        },
+        {
+          "client_id": "801332817977-dom1gbjspl8o9254kj6ajag4vh12vmlh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqp1UoFMsUi2E2Xfp4bt6jtwTWmTxnM2I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "801332817977-dom1gbjspl8o9254kj6ajag4vh12vmlh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
