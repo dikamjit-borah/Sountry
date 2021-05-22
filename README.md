@@ -9,17 +9,13 @@ A one-in-all integrated social media platform for musicians to connect with one 
   * Kotlin
   * Java
   * Retrofit
-  * Exoplayer
 
 * Backend
   * Node.js
   * Express.js
   * JWT
-  * OAuth 2.0
-  * Web sockets
   * Firebase  
-  * MySQL
-  * Sequelize ORM
+  * PostGreSQL
 
 * Cloud
   * Heroku
