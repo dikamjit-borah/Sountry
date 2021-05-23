@@ -25,7 +25,13 @@ import com.hobarb.sountry.ui.signup.adapters.GridAdapter;
 import com.hobarb.sountry.utilities.constants;
 import com.hobarb.sountry.utilities.views.Loader;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.sql.Timestamp;
 import java.util.concurrent.TimeUnit;
+
+import static com.hobarb.sountry.utilities.constants.*;
 
 public class UploadActivity extends AppCompatActivity {
 
@@ -35,15 +41,17 @@ public class UploadActivity extends AppCompatActivity {
     TextView uri_tv;
     Uri videoUri;
     FirebaseStorage storage;
-
+    Loader loader;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload);
 
+         loader = new Loader(this);
+         VIDEO_GENRES.clear();
 
         GridView genres_gv = findViewById(R.id.gv_genres_ac_upload);
-        GridAdapter gridAdapter = new GridAdapter(this, constants.genres);
+        GridAdapter gridAdapter = new GridAdapter(this, genres);
         genres_gv.setAdapter(gridAdapter);
 
         videoView = findViewById(R.id.vv_userVideo_ac_upload);
@@ -69,7 +77,7 @@ public class UploadActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(videoUri == null)
-                    Toast.makeText(UploadActivity.this, "Please select a video.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UploadActivity.this, "Please select a video", Toast.LENGTH_SHORT).show();
                 else{
                     uploadVideo(videoUri);
                 }
@@ -80,23 +88,48 @@ public class UploadActivity extends AppCompatActivity {
 
     private void uploadVideo(Uri videoUri) {
 
-        Loader loader = new Loader(this);
+
         loader.showAlertDialog();
-        storage = FirebaseStorage.getInstance();
-        StorageReference storageRef = storage.getReference();
-        StorageReference riversRef = storageRef.child("videos");
+/*        storage = FirebaseStorage.getInstance();
+        StorageReference storageRef = storage.getReference();*/
+        StorageReference riversRef = FirebaseStorage.getInstance().getReference("user_id/"+ ""+System.currentTimeMillis());
         riversRef.putFile(videoUri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         //if the upload is successfull
                         //hiding the progress dialog
-                        loader.dismissAlertDialog();
+
+                        getDownloadUrl(riversRef);
+
 
                         //and displaying a success toast
-                        Toast.makeText(getApplicationContext(), "File Uploaded ", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "File Uploaded", Toast.LENGTH_LONG).show();
                     }
                 });
+    }
+
+    private void getDownloadUrl(StorageReference storageRef) {
+        storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                loader.dismissAlertDialog();
+                sendDataToBackend(uri.toString());
+            }
+        });
+    }
+
+    private void sendDataToBackend(String video_url) {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put(VIDEO_URL_KEY, video_url);
+            jsonObject.put(VIDEO_GENRES_KEY, VIDEO_GENRES);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Toast.makeText(this, "" + jsonObject.toString(), Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this, DashboardActivity.class));
+        finish();
     }
 
     @Override
