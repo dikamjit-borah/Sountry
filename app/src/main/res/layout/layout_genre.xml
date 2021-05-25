@@ -15,10 +15,9 @@
 
         android:layout_gravity="center"
         android:gravity="center"
-        android:paddingLeft="@dimen/genre_padding_lr"
-        android:paddingRight="@dimen/genre_padding_lr"
-        android:paddingTop="@dimen/genre_padding_tb"
-        android:paddingBottom="@dimen/genre_padding_tb"
+
+        android:padding="@dimen/global_padding"
+
         android:textColor="@color/secondaryLight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

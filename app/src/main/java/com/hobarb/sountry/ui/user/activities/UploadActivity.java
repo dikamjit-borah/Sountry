@@ -20,8 +20,13 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.google.gson.JsonObject;
 import com.hobarb.sountry.R;
+import com.hobarb.sountry.apiHandler.ApiServices;
+import com.hobarb.sountry.apiHandler.RetrofitInstance;
+import com.hobarb.sountry.models.UploadVideosModel;
 import com.hobarb.sountry.ui.signup.adapters.GridAdapter;
+import com.hobarb.sountry.utilities.SharedPrefs;
 import com.hobarb.sountry.utilities.constants;
 import com.hobarb.sountry.utilities.views.Loader;
 
@@ -29,7 +34,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static com.hobarb.sountry.utilities.constants.*;
 
@@ -120,14 +131,30 @@ public class UploadActivity extends AppCompatActivity {
     }
 
     private void sendDataToBackend(String video_url) {
-        JSONObject jsonObject = new JSONObject();
-        try {
-            jsonObject.put(VIDEO_URL_KEY, video_url);
-            jsonObject.put(VIDEO_GENRES_KEY, VIDEO_GENRES);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        Toast.makeText(this, "" + jsonObject.toString(), Toast.LENGTH_SHORT).show();
+
+
+        SharedPrefs sharedPrefs = new SharedPrefs(UploadActivity.this);
+        long user_id = Long.parseLong(sharedPrefs.readPrefs(USER_ID_KEY));
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+
+        UploadVideosModel uploadVideosModel = new UploadVideosModel(user_id, "Male", video_url, formatter.format(date), VIDEO_GENRES);
+
+         ApiServices apiServices= RetrofitInstance.getRetrofitInstance().create(ApiServices.class);
+        Call<JsonObject> call = apiServices.postUploadVideo(uploadVideosModel);
+        call.enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                Toast.makeText(UploadActivity.this, "" + response.body(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+                Toast.makeText(UploadActivity.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        Toast.makeText(this, "" + uploadVideosModel.video_genres.toString(), Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this, DashboardActivity.class));
         finish();
     }

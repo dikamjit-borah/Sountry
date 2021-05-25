@@ -1,7 +1,7 @@
 create table VIDEO_ATTRIBUTES (
-	va_id INT,
-	va_video_id INT,
-	va_category_id INT,
+	va_id bigint,
+	va_video_id VARCHAR(100),
+	va_genre VARCHAR(100),
 	va_gender VARCHAR(50),
 	va_date_created DATE,
 	PRIMARY KEY (va_id),

@@ -13,7 +13,7 @@
         android:layout_margin="@dimen/global_margin"
         android:orientation="vertical"
         app:cardCornerRadius="8dp"
-        app:cardElevation="8dp">
+       >
 
         <LinearLayout
             android:background="@color/secondaryLight"
@@ -23,6 +23,7 @@
             android:orientation="vertical">
 
             <ImageView
+                android:layout_margin="@dimen/global_margin"
                 android:layout_width="134dp"
                 android:layout_height="134dp"
                 android:layout_gravity="center"
@@ -129,6 +130,18 @@
 
 
             </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_connect_ca_feed_video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/global_padding"
+                android:background="@drawable/button"
+                android:fontFamily="@font/viga"
+                android:text="Log out"
+                android:textStyle="bold" />
+
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

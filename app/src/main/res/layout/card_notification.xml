@@ -32,6 +32,14 @@
               android:orientation="vertical">
 
               <TextView
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text="User Id"
+                  android:textColor="@color/secondary">
+
+              </TextView>
+              <TextView
+
                   android:textSize="@dimen/card_title"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
@@ -39,6 +47,7 @@
                   android:textColor="@color/secondary">
 
               </TextView>
+
               <HorizontalScrollView
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content">
@@ -66,7 +75,6 @@
           android:layout_height="wrap_content"
           android:orientation="horizontal">
           <androidx.appcompat.widget.AppCompatButton
-              android:layout_marginRight="1dp"
               android:layout_weight="1"
               android:layout_width="0dp"
 
@@ -81,7 +89,7 @@
           </androidx.appcompat.widget.AppCompatButton>
           <androidx.appcompat.widget.AppCompatButton
 
-              android:layout_marginLeft="1dp"
+
               android:layout_weight="1"
               android:layout_width="0dp"
 
