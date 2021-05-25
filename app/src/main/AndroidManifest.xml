@@ -16,18 +16,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sountry">
         <activity android:name=".ui.user.activities.UploadActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".ui.login.LoginActivity"></activity>
         <activity android:name=".ui.signup.activities.PreferencesActivity" />
         <activity android:name=".ui.signup.activities.DetailsActivity" />
         <activity android:name=".ui.user.activities.DashboardActivity" />
         <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <meta-data

@@ -57,6 +57,7 @@ public class GridAdapter extends BaseAdapter {
                 {
 
                     constants.USER_PREFERRED_GENRES.add(curr_genre);
+                    constants.VIDEO_GENRES.add(curr_genre);
                     view.setBackgroundResource(R.drawable.bg_genre_signup_selected);
                     textView.setTextColor(Color.parseColor("#FFFFFF"));
                     is_genre_selected[0] = true;
@@ -64,6 +65,7 @@ public class GridAdapter extends BaseAdapter {
                 else {
 
                     constants.USER_PREFERRED_GENRES.remove(curr_genre);
+                    constants.VIDEO_GENRES.remove(curr_genre);
                     view.setBackgroundResource(R.drawable.bg_genre_signup);
                     textView.setTextColor(Color.parseColor("#1A1A1D"));
                     is_genre_selected[0] = false  ;
