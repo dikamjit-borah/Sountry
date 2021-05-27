@@ -8,10 +8,11 @@
     android:background="#fff">
 
     <FrameLayout
+
         android:id="@+id/fl_fragments_ac_dash"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@id/bottom_nav_ac_dash"
         ></FrameLayout>
 
     <include

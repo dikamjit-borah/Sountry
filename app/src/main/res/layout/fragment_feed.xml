@@ -5,20 +5,11 @@
     android:layout_height="match_parent"
     tools:context=".ui.user.fragments.FeedFragment">
 
-   <ScrollView
+   <androidx.recyclerview.widget.RecyclerView
+       android:id="@+id/rv_videos_frag_feed"
        android:layout_width="match_parent"
-       android:layout_height="match_parent">
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:orientation="vertical">
-           <include layout="@layout/card_feed_video">
+       android:layout_height="wrap_content">
 
-           </include>
-           <include layout="@layout/card_feed_video">
-
-           </include>
-       </LinearLayout>
-   </ScrollView>
+   </androidx.recyclerview.widget.RecyclerView>
 
 </FrameLayout>

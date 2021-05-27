@@ -11,13 +11,12 @@
     <dimen name="global_margin">6dp</dimen>
     <dimen name="feed_avatar_icon">52dp</dimen>
     <dimen name="global_padding">8dp</dimen>
-    <dimen name="card_title">24sp</dimen>
+    <dimen name="card_title">17sp</dimen>
     <dimen name="btn_padding">18dp</dimen>
 
 
     <dimen name="feed_mr_top">40dp</dimen>
     <dimen name="feed_mr_lr">10dp</dimen>
-    <dimen name="font_size_1">16dp</dimen>
     <dimen name="radius1">26dp</dimen>
     <dimen name="radius2">16dp</dimen>
     <dimen name="genre_padding_lr">8dp</dimen>
