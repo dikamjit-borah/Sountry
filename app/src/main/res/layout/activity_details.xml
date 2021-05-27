@@ -157,12 +157,12 @@ android:inputType="textPassword"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <include
-                android:id="@+id/inc_male_ac_prefs"
+                android:id="@+id/inc_male_ac_details"
                 layout="@layout/layout_male_signup">
 
             </include>
             <include
-                android:id="@+id/inc_female_ac_prefs"
+                android:id="@+id/inc_female_ac_details"
                 layout="@layout/layout_female_signup">
 
             </include>

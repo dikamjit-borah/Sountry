@@ -62,7 +62,7 @@ public class constants {
         public static String PHONE = "";
         public static String EMAIL = "";
         public static String DATE_JOINED = "";
-        public static String GENDER = "Male";
+        public static String GENDER = "";
     }
 
 

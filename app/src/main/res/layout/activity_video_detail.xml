@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="@dimen/global_margin"
-    app:cardElevation="@dimen/cardview_default_elevation"
+    app:cardElevation="@dimen/card_elevation"
     tools:context=".ui.user.activities.VideoDetailActivity">
 
     <LinearLayout
@@ -44,7 +44,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Dikom Wanghru"
+                        android:text="User Name"
                         android:textColor="@color/secondary"
                         android:textSize="@dimen/card_title"
                         android:textStyle="bold">
@@ -55,7 +55,7 @@
                         android:id="@+id/tv_creatorId_ac_vid_det"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="hobarb"
+                        android:text="User Id"
                         android:textColor="@color/secondaryLight">
 
                     </TextView>
@@ -76,7 +76,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:background="@color/secondaryLight"
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -89,38 +88,57 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:textColor="@color/secondary"
+                            android:textSize="@dimen/card_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Personal Details">
+
+                        </TextView>
+                        <View
+
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_gravity="center"
+                            android:background="@color/secondaryLight">
+
+                        </View>
+                    </LinearLayout>
+
                     <TextView
-                        android:textSize="@dimen/card_title"
+                        android:textColor="@color/secondaryLight"
+                        android:id="@+id/tv_fullname_ac_vid_det"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Personal Details">
+                        android:text="Full name">
 
                     </TextView>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="User id">
 
-                    </TextView>
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="User name">
-
-                    </TextView>
-                    <TextView
+                        android:textColor="@color/secondaryLight"
+                        android:id="@+id/tv_phone_ac_vid_det"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="User phone">
 
                     </TextView>
                     <TextView
+                        android:textColor="@color/secondaryLight"
+                        android:id="@+id/tv_email_ac_vid_det"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="User email">
 
                     </TextView>
                     <TextView
+                        android:textColor="@color/secondaryLight"
+
+                        android:id="@+id/tv_gender_ac_vid_det"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="User gender">
@@ -134,60 +152,46 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:textSize="@dimen/card_title"
+                    <LinearLayout
+                        android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Preferences">
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:textColor="@color/secondary"
+                            android:textSize="@dimen/card_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Preferences">
 
-                    </TextView>
-                    <TextView
+                        </TextView>
+                        <View
 
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Genres">
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_gravity="center"
+                            android:background="@color/secondaryLight">
 
-                    </TextView>
+                        </View>
+                    </LinearLayout>
+
 
                     <HorizontalScrollView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <LinearLayout
-
+                            android:id="@+id/ll_genresParent_ac_vid_det"
                             android:orientation="horizontal"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
-                            <include layout="@layout/layout_genre">
-
-                            </include>
-                            <include layout="@layout/layout_genre">
-
-                            </include>
-
                         </LinearLayout>
                     </HorizontalScrollView>
-                    <TextView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Match with">
-
-                    </TextView>
-                    <include
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        layout="@layout/layout_gender">
-
-                    </include>
-
-
-
                 </LinearLayout>
 
             </LinearLayout>
 
 
             <LinearLayout
+                android:layout_margin="@dimen/global_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                   <TextView
@@ -209,6 +213,7 @@
 
             </LinearLayout>
             <WebView
+                android:layout_margin="@dimen/global_margin"
                 android:id="@+id/wv_video_ac_vid_det"
                 android:layout_width="match_parent"
                 android:layout_height="256dp">
@@ -216,7 +221,7 @@
             </WebView>
 
             <HorizontalScrollView
-                android:background="@color/secondaryLight"
+
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
