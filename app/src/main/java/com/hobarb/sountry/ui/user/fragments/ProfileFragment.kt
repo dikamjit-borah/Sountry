@@ -11,7 +11,6 @@ import com.google.gson.Gson
 import com.hobarb.sountry.R
 import com.hobarb.sountry.apiHandler.ApiServices
 import com.hobarb.sountry.apiHandler.RetrofitInstance
-import com.hobarb.sountry.databinding.FragmentProfileBinding
 import com.hobarb.sountry.models.ProfileModel
 import com.hobarb.sountry.utilities.SharedPrefs
 import com.hobarb.sountry.utilities.constants

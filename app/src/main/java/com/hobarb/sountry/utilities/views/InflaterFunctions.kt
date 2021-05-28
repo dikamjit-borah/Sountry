@@ -1,14 +1,10 @@
 package com.hobarb.sountry.utilities.views
 
-import android.R.attr.button
-import android.R.attr.gravity
 import android.content.Context
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.annotation.RequiresApi
 import com.hobarb.sountry.R
 
 
