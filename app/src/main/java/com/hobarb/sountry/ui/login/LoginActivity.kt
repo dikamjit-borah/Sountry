@@ -9,6 +9,7 @@ import com.hobarb.sountry.R
 import com.hobarb.sountry.apiHandler.ApiServices
 import com.hobarb.sountry.apiHandler.RetrofitInstance
 import com.hobarb.sountry.databinding.ActivityLoginBinding
+import com.hobarb.sountry.ui.signup.activities.DetailsActivity
 import com.hobarb.sountry.ui.user.activities.DashboardActivity
 import com.hobarb.sountry.utilities.SharedPrefs
 import com.hobarb.sountry.utilities.constants
@@ -28,17 +29,33 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
+        val sharedPrefs = SharedPrefs(this@LoginActivity)
+        val token  = sharedPrefs.readPrefs(constants.TOKEN_KEY).toString()
+        if(!token.isNullOrEmpty() && !(token == "404"))
+        {
+            Toaster.showToast(applicationContext, "" + sharedPrefs.readPrefs(constants.TOKEN_KEY).toString())
+            startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
+            finish()
+        }
+
         loader = Loader(this@LoginActivity)
 
         val btn_login = findViewById<AppCompatButton>(R.id.btn_login_ac_login)
 
         btn_login.setOnClickListener {
 
-            loader.showAlertDialog()
+
             if(validateInput())
             {
+                loader.showAlertDialog()
                 authenticateUser()
             }
+        }
+
+        binding.tvSignupAcLogin.setOnClickListener {
+            startActivity(Intent(this@LoginActivity, DetailsActivity::class.java))
         }
 
 

@@ -1,8 +1,10 @@
 package com.hobarb.sountry.ui.signup.activities
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import com.hobarb.sountry.R
 import com.hobarb.sountry.databinding.ActivityDetailsBinding
@@ -17,8 +19,30 @@ class DetailsActivity : AppCompatActivity() {
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val maleBtn = binding.incMaleAcDetails.llMaleLayFSignup
+        val femaleBtn = binding.incFemaleAcDetails.llFemaleLayFSignup
+
+
+        maleBtn.setOnClickListener {
+            femaleBtn.setBackgroundResource(R.drawable.bg_genre_signup)
+            maleBtn.setBackgroundResource(R.drawable.bg_genre_signup_selected)
+            binding.incMaleAcDetails.tvMaleSignUp.setTextColor(Color.WHITE)
+            binding.incFemaleAcDetails.tvFemaleSignUp.setTextColor(Color.BLACK)
+
+            constants.UserDetails.GENDER = "Male"
+        }
+        femaleBtn.setOnClickListener {
+            maleBtn.setBackgroundResource(R.drawable.bg_genre_signup)
+            femaleBtn.setBackgroundResource(R.drawable.bg_genre_signup_selected)
+            binding.incFemaleAcDetails.tvFemaleSignUp.setTextColor(Color.WHITE)
+            binding.incMaleAcDetails.tvMaleSignUp.setTextColor(Color.BLACK)
+
+            constants.UserDetails.GENDER = "Female"
+        }
+
         findViewById<AppCompatButton>(R.id.btn_next_ac_details).setOnClickListener{
-           // intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+
+
             if(validateInputs())
             {
                 startActivity(Intent(applicationContext, PreferencesActivity::class.java))
@@ -48,6 +72,10 @@ class DetailsActivity : AppCompatActivity() {
             binding.etPhoneAcDetails.error = "Enter a valid phone number"
         if(binding.etEmailAcDetails.text.isNullOrBlank())
             binding.etEmailAcDetails.error = "Enter a valid email"
+        if(constants.UserDetails.GENDER == "")
+        {
+            Toast.makeText(applicationContext, "Select your gender", Toast.LENGTH_SHORT).show()
+        }
 
         else{
             UserDetails.FULL_NAME = binding.etNameAcDetails.text.toString()
@@ -58,6 +86,7 @@ class DetailsActivity : AppCompatActivity() {
 
             return true;
         }
+
         return false;
 
     }

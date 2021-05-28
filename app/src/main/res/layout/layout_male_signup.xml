@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
 
+    android:id="@+id/ll_male_lay_f_signup"
     android:padding="@dimen/global_padding"
     android:layout_margin="@dimen/global_margin"
     android:background="@drawable/bg_gender_signup"

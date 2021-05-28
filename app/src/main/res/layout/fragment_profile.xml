@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/secondaryLight"
     tools:context=".ui.user.fragments.ConnectionsFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -36,38 +37,65 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <TextView
-                    android:textSize="@dimen/card_title"
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Personal Details">
+                    android:layout_height="wrap_content">
+                    <TextView
 
-                </TextView>
+                        android:textSize="@dimen/card_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Personal Details">
+
+                    </TextView>
+                    <View
+
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center"
+                        android:background="@color/white">
+
+                    </View>
+                </LinearLayout>
                 <TextView
+                    android:id="@+id/tv_userId_frag_prof"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="User id">
 
                 </TextView>
                 <TextView
+                    android:id="@+id/tv_username_frag_prof"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="User name">
 
                 </TextView>
                 <TextView
+                    android:id="@+id/tv_fullname_frag_prof"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Full name">
+
+                </TextView>
+                <TextView
+
+                    android:id="@+id/tv_phone_frag_prof"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="User phone">
 
                 </TextView>
                 <TextView
+                    android:id="@+id/tv_email_frag_prof"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="User email">
 
                 </TextView>
                 <TextView
+                    android:id="@+id/tv_gender_frag_prof"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="User gender">
@@ -81,13 +109,28 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TextView
-                    android:textSize="@dimen/card_title"
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Preferences">
+                    android:layout_height="wrap_content">
+                    <TextView
 
-                </TextView>
+                        android:textSize="@dimen/card_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Preferences">
+
+                    </TextView>
+                    <View
+
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center"
+                        android:background="@color/white">
+
+                    </View>
+                </LinearLayout>
+
                 <TextView
 
                     android:layout_width="match_parent"
@@ -100,16 +143,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <LinearLayout
-                        android:id="@+id/ll_tagsParent_acp"
+                        android:id="@+id/ll_genresParent_frag_prof"
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                        <include layout="@layout/layout_genre">
-
-                        </include>
-                        <include layout="@layout/layout_genre">
-
-                        </include>
 
                     </LinearLayout>
                 </HorizontalScrollView>
@@ -120,12 +157,13 @@
                     android:text="Match with">
 
                 </TextView>
-                <include
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    layout="@layout/layout_gender">
+                <LinearLayout
+                    android:id="@+id/ll_genderParent_frag_prof"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                </include>
+                </LinearLayout>
 
 
 
