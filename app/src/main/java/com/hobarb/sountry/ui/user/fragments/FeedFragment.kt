@@ -52,6 +52,7 @@ class FeedFragment : Fragment(R.layout.fragment_feed) {
                     LinearLayoutManager(context, RecyclerView.VERTICAL, false)
                 videos_rv.layoutManager = linearLayoutManager
                 videos_rv.adapter = videosAdapter
+
                 loader.dismissAlertDialog()
             }
 

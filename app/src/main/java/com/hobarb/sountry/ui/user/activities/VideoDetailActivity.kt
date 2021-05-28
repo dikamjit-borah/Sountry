@@ -1,15 +1,17 @@
 package com.hobarb.sountry.ui.user.activities
 
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.annotation.RequiresApi
 import com.google.gson.Gson
+import com.google.gson.JsonObject
+import com.hobarb.sountry.R
 import com.hobarb.sountry.apiHandler.ApiServices
 import com.hobarb.sountry.apiHandler.RetrofitInstance
 import com.hobarb.sountry.databinding.ActivityVideoDetailBinding
 
 import com.hobarb.sountry.models.ProfileModel
+import com.hobarb.sountry.utilities.SharedPrefs
+import com.hobarb.sountry.utilities.constants
 import com.hobarb.sountry.utilities.views.InflaterFunctions
 import com.hobarb.sountry.utilities.views.Loader
 import com.hobarb.sountry.utilities.views.Toaster
@@ -32,25 +34,64 @@ class VideoDetailActivity : AppCompatActivity() {
         val video_url: String? = intent.getStringExtra("video_url")
         val video_date: String? = intent.getStringExtra("video_date")
 
-        Toaster.showToast(applicationContext, ""+id)
+        val video_id: String? = intent.getStringExtra("video_id")
 
 
         val service: ApiServices = RetrofitInstance.getRetrofitInstance().create(ApiServices::class.java)
-        val call: Call<List<ProfileModel>>? = service.getUserProfile(id)
-        call!!.enqueue(object : Callback<List<ProfileModel>>{
 
-            override fun onResponse(call: Call<List<ProfileModel>>, response: Response<List<ProfileModel>>) {
-                updateViews(response.body()!![0])
-                loader.dismissAlertDialog()
+
+        binding.btnSendRequestAcVidDet.setOnClickListener {
+            binding.btnSendRequestAcVidDet.setBackgroundResource(R.drawable.button_disabled)
+            binding.btnSendRequestAcVidDet.setText("Request Sent")
+
+            val user_id = SharedPrefs(this).readPrefs(constants.USER_ID_KEY).toLong()
+
+            val call_1: Call<JsonObject>? = service.postSendRequest(id, user_id)
+            call_1!!.enqueue(object : Callback<JsonObject>{
+                override fun onResponse(call_1: Call<JsonObject>, response: Response<JsonObject>) {
+                    Toaster.showToast(applicationContext, ""+response.body())
+                }
+
+                override fun onFailure(call_1: Call<JsonObject>, t: Throwable) {
+                    Toaster.showToast(applicationContext, ""+t.message)
+                }
+            })
+
+
             }
 
-            override fun onFailure(call: Call<List<ProfileModel>>, t: Throwable) {
+        val call_1: Call<List<ProfileModel>>? = service.getUserProfile(id)
+        call_1!!.enqueue(object : Callback<List<ProfileModel>>{
+
+            override fun onResponse(call_1: Call<List<ProfileModel>>, response: Response<List<ProfileModel>>) {
+                updateViews(response.body()!![0])
+                val call_2: Call<List<String>>? = service.getVideoGenres(video_id)
+                call_2!!.enqueue(object : Callback<List<String>>{
+                    override fun onResponse(call: Call<List<String>>, response: Response<List<String>>) {
+                        val listOfGenres = Gson().fromJson( response.body().toString(), mutableListOf<String>().javaClass)
+                        InflaterFunctions.inflateGenres(this@VideoDetailActivity, binding.llVideoGenresParentAcVidDet, listOfGenres)
+                        loader.dismissAlertDialog()
+
+                    }
+
+                    override fun onFailure(call: Call<List<String>>, t: Throwable) {
+                        Toaster.showToast(applicationContext, ""+t.message)
+                        loader.dismissAlertDialog()
+                    }
+                })
+
+            }
+
+            override fun onFailure(call_1: Call<List<ProfileModel>>, t: Throwable) {
                 Toaster.showToast(applicationContext, ""+ t.message)
                 loader.dismissAlertDialog()
             }
         })
 
-        binding.wvVideoAcVidDet.loadUrl(video_url.toString())
+
+
+
+            binding.wvVideoAcVidDet.loadUrl(video_url.toString())
         binding.tvDateCreatedAcVidDet.setText(""+video_date)
     }
 
