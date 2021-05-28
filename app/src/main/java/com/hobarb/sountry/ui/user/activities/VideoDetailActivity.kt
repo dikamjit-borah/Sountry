@@ -34,6 +34,9 @@ class VideoDetailActivity : AppCompatActivity() {
         val video_url: String? = intent.getStringExtra("video_url")
         val video_date: String? = intent.getStringExtra("video_date")
 
+        val video_id: String? = intent.getStringExtra("video_id")
+
+
         val service: ApiServices = RetrofitInstance.getRetrofitInstance().create(ApiServices::class.java)
 
 
@@ -43,13 +46,13 @@ class VideoDetailActivity : AppCompatActivity() {
 
             val user_id = SharedPrefs(this).readPrefs(constants.USER_ID_KEY).toLong()
 
-            val call: Call<JsonObject>? = service.postSendRequest(id, user_id)
-            call!!.enqueue(object : Callback<JsonObject>{
-                override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
+            val call_1: Call<JsonObject>? = service.postSendRequest(id, user_id)
+            call_1!!.enqueue(object : Callback<JsonObject>{
+                override fun onResponse(call_1: Call<JsonObject>, response: Response<JsonObject>) {
                     Toaster.showToast(applicationContext, ""+response.body())
                 }
 
-                override fun onFailure(call: Call<JsonObject>, t: Throwable) {
+                override fun onFailure(call_1: Call<JsonObject>, t: Throwable) {
                     Toaster.showToast(applicationContext, ""+t.message)
                 }
             })
@@ -57,21 +60,38 @@ class VideoDetailActivity : AppCompatActivity() {
 
             }
 
-        val call: Call<List<ProfileModel>>? = service.getUserProfile(id)
-        call!!.enqueue(object : Callback<List<ProfileModel>>{
+        val call_1: Call<List<ProfileModel>>? = service.getUserProfile(id)
+        call_1!!.enqueue(object : Callback<List<ProfileModel>>{
 
-            override fun onResponse(call: Call<List<ProfileModel>>, response: Response<List<ProfileModel>>) {
+            override fun onResponse(call_1: Call<List<ProfileModel>>, response: Response<List<ProfileModel>>) {
                 updateViews(response.body()!![0])
-                loader.dismissAlertDialog()
+                val call_2: Call<List<String>>? = service.getVideoGenres(video_id)
+                call_2!!.enqueue(object : Callback<List<String>>{
+                    override fun onResponse(call: Call<List<String>>, response: Response<List<String>>) {
+                        val listOfGenres = Gson().fromJson( response.body().toString(), mutableListOf<String>().javaClass)
+                        InflaterFunctions.inflateGenres(this@VideoDetailActivity, binding.llVideoGenresParentAcVidDet, listOfGenres)
+                        loader.dismissAlertDialog()
+
+                    }
+
+                    override fun onFailure(call: Call<List<String>>, t: Throwable) {
+                        Toaster.showToast(applicationContext, ""+t.message)
+                        loader.dismissAlertDialog()
+                    }
+                })
+
             }
 
-            override fun onFailure(call: Call<List<ProfileModel>>, t: Throwable) {
+            override fun onFailure(call_1: Call<List<ProfileModel>>, t: Throwable) {
                 Toaster.showToast(applicationContext, ""+ t.message)
                 loader.dismissAlertDialog()
             }
         })
 
-        binding.wvVideoAcVidDet.loadUrl(video_url.toString())
+
+
+
+            binding.wvVideoAcVidDet.loadUrl(video_url.toString())
         binding.tvDateCreatedAcVidDet.setText(""+video_date)
     }
 

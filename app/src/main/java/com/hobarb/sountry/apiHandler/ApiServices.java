@@ -24,6 +24,12 @@ public interface ApiServices {
     @GET("api/user/videos")
     Call<List<VideosModel>> getVideos();
 
+
+    @GET("api/user/video")
+    Call<List<String>> getVideoGenres(@Query("video_id") String video_id);
+
+
+
     @GET("api/user/{id}")
     Call<List<ProfileModel>> getUserProfile(@Path("id") long user_id);
 
@@ -46,6 +52,10 @@ public interface ApiServices {
 
     @GET("api/connect/notifications")
     Call<List<NotificationsModel>> getNotifications(@Query("user_id") long user_id);
+
+    @GET("api/connect/connections")
+    Call<List<NotificationsModel>> getConnections(@Query("user_id") long user_id);
+
 
     @PUT("api/connect/update")
     Call<JsonObject> updateConnection(@Query("connect_with_id") long connect_with_id, @Query("request_by_id") long request_by_id, @Query("is_connected") int is_connected);

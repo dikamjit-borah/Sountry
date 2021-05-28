@@ -55,6 +55,7 @@ class VideosAdapter(var context: Context?, videoModels: List<VideosModel>?) : Re
 
             val intent = Intent(context, VideoDetailActivity::class.java)
 
+            intent.putExtra("video_id", "" + videoModels[position].videoId)
             intent.putExtra("video_creator_id", "" + videoModels[position].videoCreatorId)
             intent.putExtra("video_date", "" + videoModels[position].videoDateCreated)
             intent.putExtra("video_url", "" + videoModels[position].videoUrl)

@@ -236,17 +236,16 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <include layout="@layout/layout_genre">
-
-                    </include>
-
-                    <include layout="@layout/layout_genre">
-
-                    </include>
-
-                    <include layout="@layout/layout_genre">
-
-                    </include>
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:id="@+id/ll_videoGenresParent_ac_vid_det"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                        </LinearLayout>
+                    </HorizontalScrollView>
 
                 </LinearLayout>
             </HorizontalScrollView>

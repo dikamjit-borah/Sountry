@@ -9,58 +9,61 @@
     android:layout_margin="@dimen/global_margin"
     >
     <LinearLayout
-        android:gravity="center"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:layout_margin="@dimen/global_margin"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:src="@drawable/avatar">
-
-        </ImageView>
+        android:layout_height="wrap_content">
         <LinearLayout
-            android:layout_margin="@dimen/global_margin"
+            android:gravity="center"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_margin="@dimen/global_margin"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/avatar">
+
+            </ImageView>
+            <LinearLayout
+                android:layout_margin="@dimen/global_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="User id"
-                android:textColor="@color/secondary">
+                android:orientation="vertical">
 
-            </TextView>
-            <TextView
-                android:textSize="@dimen/card_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="User name"
-                android:textColor="@color/secondary">
+                <TextView
+                    android:id="@+id/tv_userId_ca_conn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="User Id"
+                    android:textColor="@color/secondary">
 
-            </TextView>
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                </TextView>
+                <TextView
+                    android:id="@+id/tv_userName_ca_conn"
+                    android:textSize="@dimen/card_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="User name"
+                    android:textColor="@color/secondary">
 
-                <LinearLayout
-                    android:id="@+id/ll_tagsParent_acp"
-                    android:orientation="horizontal"
+                </TextView>
+
+                <HorizontalScrollView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <include layout="@layout/layout_genre">
+                    <LinearLayout
+                        android:id="@+id/ll_genresParent_ca_conn"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                    </include>
-                    <include layout="@layout/layout_genre">
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
 
-                    </include>
-
-                </LinearLayout>
-            </HorizontalScrollView>
         </LinearLayout>
-
+      
     </LinearLayout>
 </androidx.cardview.widget.CardView>
