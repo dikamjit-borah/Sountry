@@ -1,5 +1,6 @@
 package com.hobarb.sountry.ui.user.activities
 
+import android.content.Intent
 import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -67,6 +68,13 @@ class VideoDetailActivity : AppCompatActivity() {
 
 
             }
+        binding.btnChatAcVidDet.setOnClickListener {
+            val intent = Intent(applicationContext, ChatActivity::class.java)
+            intent.putExtra("user_id_1", user_id.toString())
+            intent.putExtra("user_id_2", id.toString())
+            //Toaster.showToast(applicationContext, user_id.toString())
+            startActivity(intent)
+            }
 
         if (user_id == id)
         {
@@ -86,19 +94,11 @@ class VideoDetailActivity : AppCompatActivity() {
                     override fun onResponse(call: Call<List<String>>, response: Response<List<String>>) {
 
                         val listOfGenres: MutableList<String>? = response.body()!!.toMutableList()
-                       // val listOfGenres = Gson().fromJson(response.body().toString().trim(), mutableListOf<String>().javaClass)
-
                         if (listOfGenres != null) {
                             InflaterFunctions.inflateGenres(this@VideoDetailActivity, binding.llVideoGenresParentAcVidDet, listOfGenres)
                         }
 
-                        /* if(!response.body().isNullOrEmpty())
-                         {
-                             val listOfGenres = Gson().fromJson( response.body().toString(), mutableListOf<String>().javaClass)
-                             Toaster.showToast(applicationContext, ""+listOfGenres.toString())
-                             InflaterFunctions.inflateGenres(this@VideoDetailActivity, binding.llVideoGenresParentAcVidDet, listOfGenres)
-
-                         }*/
+                      
                         loader.dismissAlertDialog()
 
 
