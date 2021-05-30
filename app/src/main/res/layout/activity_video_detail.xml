@@ -64,6 +64,7 @@
 
                 <androidx.appcompat.widget.AppCompatButton
 
+
                     android:id="@+id/btn_sendRequest_ac_vid_det"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -72,6 +73,30 @@
                     android:padding="@dimen/global_padding"
                     android:fontFamily="@font/viga"
                     android:text="Send Request"
+                    android:textStyle="bold" />
+                <androidx.appcompat.widget.AppCompatButton
+
+                    android:visibility="gone"
+                    android:id="@+id/btn_requested_ac_vid_det"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/button_disabled"
+                    android:padding="@dimen/global_padding"
+                    android:fontFamily="@font/viga"
+                    android:text="Pending"
+                    android:textStyle="bold" />
+                <androidx.appcompat.widget.AppCompatButton
+
+                    android:visibility="gone"
+                    android:id="@+id/btn_chat_ac_vid_det"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/primary"
+                    android:background="@drawable/bg_genre_signup"
+                    android:padding="@dimen/global_padding"
+                    android:text="Chat"
                     android:textStyle="bold" />
 
 

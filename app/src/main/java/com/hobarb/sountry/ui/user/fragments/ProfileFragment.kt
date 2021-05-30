@@ -1,5 +1,6 @@
 package com.hobarb.sountry.ui.user.fragments
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,11 +8,13 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.RequiresApi
+import androidx.appcompat.widget.AppCompatButton
 import com.google.gson.Gson
 import com.hobarb.sountry.R
 import com.hobarb.sountry.apiHandler.ApiServices
 import com.hobarb.sountry.apiHandler.RetrofitInstance
 import com.hobarb.sountry.models.ProfileModel
+import com.hobarb.sountry.ui.login.LoginActivity
 import com.hobarb.sountry.utilities.SharedPrefs
 import com.hobarb.sountry.utilities.constants
 import com.hobarb.sountry.utilities.views.InflaterFunctions
@@ -34,6 +37,12 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         loader.showAlertDialog()
 
         val user_id = SharedPrefs(context).readPrefs(constants.USER_ID_KEY).toLong()
+        val logout = view.findViewById<AppCompatButton> (R.id.btn_logout_frag_prof)
+        logout.setOnClickListener {
+            SharedPrefs(context).writePrefs(constants.TOKEN_KEY, "")
+            startActivity(Intent(context, LoginActivity::class.java))
+            activity!!.finish()
+        }
 
         val service: ApiServices = RetrofitInstance.getRetrofitInstance().create(ApiServices::class.java)
         val call: Call<List<ProfileModel>>? = service.getUserProfile(user_id)

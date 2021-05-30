@@ -170,7 +170,8 @@
             </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_connect_ca_feed_video"
+
+                android:id="@+id/btn_logout_frag_prof"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

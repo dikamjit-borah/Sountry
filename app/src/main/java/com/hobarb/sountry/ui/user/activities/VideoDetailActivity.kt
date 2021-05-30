@@ -1,7 +1,9 @@
 package com.hobarb.sountry.ui.user.activities
 
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.hobarb.sountry.R
@@ -22,6 +24,8 @@ import retrofit2.Response
 class VideoDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityVideoDetailBinding
     lateinit var loader:Loader
+    var user_id:Long = 0
+    var id:Long = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityVideoDetailBinding.inflate(layoutInflater)
@@ -29,8 +33,10 @@ class VideoDetailActivity : AppCompatActivity() {
 
         loader = Loader(this@VideoDetailActivity)
         loader.showAlertDialog()
+
+        user_id = SharedPrefs(this).readPrefs(constants.USER_ID_KEY).toLong()
         val video_creator_id: String? = intent.getStringExtra("video_creator_id")
-        val id:Long = video_creator_id!!.toLong()
+         id = video_creator_id!!.toLong()
         val video_url: String? = intent.getStringExtra("video_url")
         val video_date: String? = intent.getStringExtra("video_date")
 
@@ -40,11 +46,13 @@ class VideoDetailActivity : AppCompatActivity() {
         val service: ApiServices = RetrofitInstance.getRetrofitInstance().create(ApiServices::class.java)
 
 
+
+
+
         binding.btnSendRequestAcVidDet.setOnClickListener {
             binding.btnSendRequestAcVidDet.setBackgroundResource(R.drawable.button_disabled)
             binding.btnSendRequestAcVidDet.setText("Request Sent")
 
-            val user_id = SharedPrefs(this).readPrefs(constants.USER_ID_KEY).toLong()
 
             val call_1: Call<JsonObject>? = service.postSendRequest(id, user_id)
             call_1!!.enqueue(object : Callback<JsonObject>{
@@ -60,6 +68,14 @@ class VideoDetailActivity : AppCompatActivity() {
 
             }
 
+        if (user_id == id)
+        {
+            binding.btnSendRequestAcVidDet.visibility = View.GONE
+        }
+        else{
+            checkConnection(service)
+        }
+
         val call_1: Call<List<ProfileModel>>? = service.getUserProfile(id)
         call_1!!.enqueue(object : Callback<List<ProfileModel>>{
 
@@ -68,9 +84,23 @@ class VideoDetailActivity : AppCompatActivity() {
                 val call_2: Call<List<String>>? = service.getVideoGenres(video_id)
                 call_2!!.enqueue(object : Callback<List<String>>{
                     override fun onResponse(call: Call<List<String>>, response: Response<List<String>>) {
-                        val listOfGenres = Gson().fromJson( response.body().toString(), mutableListOf<String>().javaClass)
-                        InflaterFunctions.inflateGenres(this@VideoDetailActivity, binding.llVideoGenresParentAcVidDet, listOfGenres)
+
+                        val listOfGenres: MutableList<String>? = response.body()!!.toMutableList()
+                       // val listOfGenres = Gson().fromJson(response.body().toString().trim(), mutableListOf<String>().javaClass)
+
+                        if (listOfGenres != null) {
+                            InflaterFunctions.inflateGenres(this@VideoDetailActivity, binding.llVideoGenresParentAcVidDet, listOfGenres)
+                        }
+
+                        /* if(!response.body().isNullOrEmpty())
+                         {
+                             val listOfGenres = Gson().fromJson( response.body().toString(), mutableListOf<String>().javaClass)
+                             Toaster.showToast(applicationContext, ""+listOfGenres.toString())
+                             InflaterFunctions.inflateGenres(this@VideoDetailActivity, binding.llVideoGenresParentAcVidDet, listOfGenres)
+
+                         }*/
                         loader.dismissAlertDialog()
+
 
                     }
 
@@ -93,6 +123,40 @@ class VideoDetailActivity : AppCompatActivity() {
 
             binding.wvVideoAcVidDet.loadUrl(video_url.toString())
         binding.tvDateCreatedAcVidDet.setText(""+video_date)
+    }
+
+    private fun checkConnection(service: ApiServices) {
+        val loader  = Loader(this@VideoDetailActivity)
+        loader.showAlertDialog()
+        val call: Call<JsonObject>? = service.getCheckConnection(user_id, id)
+
+        call!!.enqueue(object : Callback<JsonObject>{
+            override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
+
+                if (response.body()!!["data"].toString() == "1")
+                {
+                    binding.btnSendRequestAcVidDet.visibility = View.GONE
+                    binding.btnRequestedAcVidDet.visibility = View.GONE
+
+                    binding.btnChatAcVidDet.visibility = View.VISIBLE
+                }
+                else if (response.body()!!["data"].toString() == "0")
+                {
+                    binding.btnSendRequestAcVidDet.visibility = View.GONE
+                    binding.btnRequestedAcVidDet.visibility = View.VISIBLE
+                }
+
+
+                loader.dismissAlertDialog()
+            }
+
+            override fun onFailure(call: Call<JsonObject>, t: Throwable) {
+                Toaster.showToast(applicationContext, t.message)
+                loader.dismissAlertDialog()
+            }
+
+        })
+
     }
 
 

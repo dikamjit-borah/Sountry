@@ -60,4 +60,8 @@ public interface ApiServices {
     @PUT("api/connect/update")
     Call<JsonObject> updateConnection(@Query("connect_with_id") long connect_with_id, @Query("request_by_id") long request_by_id, @Query("is_connected") int is_connected);
 
+
+    @GET("api/connect/check")
+    Call<JsonObject> getCheckConnection(@Query("connect_with_id") long connect_with_id, @Query("request_by_id") long request_by_id);
+
 }

@@ -9,6 +9,7 @@ public class constants {
 
 
 
+   // public static String BASE_URL = "http://sountry.herokuapp.com/";
     public static String BASE_URL = "http://192.168.29.207:3000/";
     public static String SHARED_PREFS_KEY = "SOUNTRY";
     public static String USER_ID_KEY = "USER_ID";
