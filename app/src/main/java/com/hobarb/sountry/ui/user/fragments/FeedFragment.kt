@@ -49,9 +49,11 @@ class FeedFragment : Fragment(R.layout.fragment_feed) {
 
                 val videosAdapter =  VideosAdapter(context, response.body())
                 val linearLayoutManager =
-                    LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+                    LinearLayoutManager(context, RecyclerView.VERTICAL, true)
+                linearLayoutManager.stackFromEnd = true
                 videos_rv.layoutManager = linearLayoutManager
                 videos_rv.adapter = videosAdapter
+
 
                 loader.dismissAlertDialog()
             }
