@@ -21,12 +21,18 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ApiServices {
-    @GET("api/user/videos")
-    Call<List<VideosModel>> getVideos();
+ /*   @GET("api/user/videos")
+    Call<List<VideosModel>> getVideos();*/
+
+    @Headers("Content-Type: application/json")
+    @POST("api/user/videos")
+    Call<List<VideosModel>> getVideos(@Body JsonObject user_id);
 
 
     @GET("api/user/video")
     Call<List<String>> getVideoGenres(@Query("video_id") String video_id);
+
+
 
 
 

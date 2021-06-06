@@ -3,6 +3,7 @@ package com.hobarb.sountry.ui.user.fragments
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.hobarb.sountry.R
@@ -42,6 +43,10 @@ class ConnectionsFragment : Fragment(R.layout.fragment_connections) {
                 response: Response<List<NotificationsModel>>
             ) {
 
+                if(response.body()!!.isEmpty())
+                {
+                    view!!.findViewById<TextView>(R.id.tv_notFound_frag_conn).visibility = View.VISIBLE
+                }
                 val connectionsAdapter =  ConnectionsAdapter(context, response.body())
                 val linearLayoutManager =
                     LinearLayoutManager(context, RecyclerView.VERTICAL, false)

@@ -102,6 +102,7 @@ class ChatActivity : AppCompatActivity() {
 
                 mDatabase.child(roomId).child(timestamp).setValue(message)
 
+
             }
 
         }
@@ -119,7 +120,6 @@ class ChatActivity : AppCompatActivity() {
                     val dateTime = snapshot1.child("datetime").value.toString()
                     val message = snapshot1.child("message").value.toString()
                     val msg = MessageModel(userId, message, dateTime)
-
                     list.add(msg)
                 }
                 val messageAdapter =  MessageAdapter(applicationContext, list)
@@ -128,6 +128,7 @@ class ChatActivity : AppCompatActivity() {
                 messages_rv.layoutManager = linearLayoutManager
                 messages_rv.adapter = messageAdapter
                 messageAdapter.notifyDataSetChanged()
+                messages_rv.scrollToPosition(list.size - 1);
                 loader.dismissAlertDialog()
             }
 

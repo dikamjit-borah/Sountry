@@ -22,6 +22,7 @@
     <dimen name="genre_padding_lr">8dp</dimen>
     <dimen name="genre_padding_tb">4dp</dimen>
     <dimen name="componentRadius">6dp</dimen>
+    <dimen name="card_subtitle">9sp</dimen>
 
 
 </resources>
