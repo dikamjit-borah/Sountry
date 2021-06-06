@@ -4,7 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.user.fragments.ConnectionsFragment">
-
+   <TextView
+       android:visibility="gone"
+       android:id="@+id/tv_notFound_frag_conn"
+       android:layout_gravity="center"
+       android:background="@drawable/connect_btn"
+       android:padding="@dimen/global_padding"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="@string/connections_not_found"></TextView>
    <androidx.recyclerview.widget.RecyclerView
        android:id="@+id/rv_connections_frag_conn"
        android:layout_width="match_parent"

@@ -47,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:text="Email"
+                android:text="Username"
                 android:layout_marginTop="25dp"
                 android:textStyle="bold"
                 />
@@ -58,7 +58,7 @@
                 android:layout_height="45dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:hint="Enter your email"
+                android:hint="Enter your username"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
                 android:textSize="15sp"
@@ -102,6 +102,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
+                    android:padding="@dimen/global_padding"
                     android:textColor="@color/secondaryLight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -109,6 +110,7 @@
 
                 </TextView>
                 <TextView
+                    android:padding="@dimen/global_padding"
                     android:id="@+id/tv_signup_ac_login"
                     android:textColor="@color/primaryLight"
                     android:layout_width="wrap_content"

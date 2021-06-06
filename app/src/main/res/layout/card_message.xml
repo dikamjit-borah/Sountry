@@ -33,10 +33,12 @@
                     android:orientation="vertical">
 
                     <LinearLayout
+                        android:layout_margin="@dimen/global_margin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <TextView
+                            android:visibility="gone"
                             android:id="@+id/tv_userId_ca_msg"
                             android:layout_width="0dp"
                             android:layout_weight="1"
@@ -46,16 +48,21 @@
 
                         </TextView>
                         <TextView
+                            android:textStyle="italic"
                             android:id="@+id/tv_dateTime_ca_msg"
                             android:layout_weight="1"
                             android:layout_width="0dp"
+                            android:gravity="end"
                             android:layout_height="wrap_content"
                             android:text="datetime"
-                            android:textColor="@color/secondary">
+                            android:textSize="@dimen/card_subtitle"
+                            android:textColor="@color/secondaryLight">
 
                         </TextView>
                     </LinearLayout>
                     <TextView
+                        android:layout_margin="@dimen/global_margin"
+
                         android:id="@+id/tv_msgText_ca_msg"
                         android:textSize="@dimen/card_title"
                         android:layout_width="match_parent"
