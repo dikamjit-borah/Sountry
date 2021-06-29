@@ -50,7 +50,7 @@ class AddForumPostActivity : AppCompatActivity() {
         categoriesSpinner = findViewById(R.id.sp_categories_ac_addForumPost)
 
         val arrayAdapter = ArrayAdapter<String>(applicationContext, R.layout.style_spinner, constants.forum_categories)
-        arrayAdapter.setDropDownViewResource(R.layout.style_spinner)
+        arrayAdapter.setDropDownViewResource(R.layout.style_spinner_dropdown)
         categoriesSpinner.adapter = (arrayAdapter)
 
         categoriesSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
