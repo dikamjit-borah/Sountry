@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:id="@+id/cv_parent_ca_forumPost"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    app:cardElevation="8dp"
+    app:cardCornerRadius="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/global_margin"
+    >
+    <LinearLayout
+
+        android:padding="@dimen/global_padding"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_margin="@dimen/global_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:background="@drawable/tag_bg_green"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+
+
+                        android:src="@drawable/ic_baseline_bookmarks_24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </ImageView>
+                    <TextView
+
+                        android:id="@+id/tv_postRequirement_ca_forumPost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Post requirement"
+>
+
+                    </TextView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_weight="1"
+                        android:id="@+id/tv_userName_ca_forumPost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Username"
+                        android:textColor="@color/secondary">
+
+                    </TextView>
+                    <TextView
+
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:id="@+id/tv_userPhone_ca_forumPost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Phone number"
+                        android:textColor="@color/primary">
+
+                    </TextView>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_postDescription_ca_forumPost"
+                    android:textSize="@dimen/card_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Post description"
+                    android:textColor="@color/secondary">
+
+                </TextView>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/ll_genresParent_ca_forumPost"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+
+        </LinearLayout>
+      
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

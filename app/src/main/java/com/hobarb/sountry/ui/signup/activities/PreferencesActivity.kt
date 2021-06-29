@@ -8,26 +8,29 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
+import com.google.gson.GsonBuilder
+import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import com.hobarb.sountry.R
 import com.hobarb.sountry.apiHandler.ApiServices
 import com.hobarb.sountry.apiHandler.RetrofitInstance
+import com.hobarb.sountry.models.UpdatePreferencesModel
 import com.hobarb.sountry.models.UserModel
 import com.hobarb.sountry.ui.login.LoginActivity
 import com.hobarb.sountry.ui.signup.adapters.GridAdapter
-import com.hobarb.sountry.ui.user.activities.DashboardActivity
+import com.hobarb.sountry.ui.user.fragments.FeedFragment
 import com.hobarb.sountry.utilities.SharedPrefs
 import com.hobarb.sountry.utilities.constants
 import com.hobarb.sountry.utilities.constants.*
 import com.hobarb.sountry.utilities.views.Loader
 import com.hobarb.sountry.utilities.views.Toaster
-
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 class PreferencesActivity : AppCompatActivity() {
     lateinit var genres_gv: GridView
@@ -41,6 +44,8 @@ class PreferencesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_preferences)
 
+        USER_PREFERRED_GENDER.clear()
+        USER_PREFERRED_GENRES.clear()
         loader = Loader(this@PreferencesActivity)
         genres_gv = findViewById<GridView>(R.id.gv_genres_ac_prefs)
         male_inc = findViewById(R.id.inc_male_ac_prefs)
@@ -85,11 +90,50 @@ class PreferencesActivity : AppCompatActivity() {
 
         }
 
+        if(userCameFromProfileFragment)
+        {
+            findViewById<AppCompatButton>(R.id.btn_submit_ac_prefs).text = "Update Preferences"
+        }
+
         findViewById<AppCompatButton>(R.id.btn_submit_ac_prefs).setOnClickListener{
 
             loader.showAlertDialog()
-            getUserInfo()
+            if(!userCameFromProfileFragment)
+            {
+                getUserInfo()
+            }
+            else{
+                updatePreferences()
+            }
+
         }
+
+
+
+    }
+
+    private fun updatePreferences() {
+
+        val updatePreferencesModel = UpdatePreferencesModel(SharedPrefs(applicationContext).readPrefs(USER_ID_KEY), USER_PREFERRED_GENRES, USER_PREFERRED_GENDER)
+
+
+
+
+        userCameFromProfileFragment = false
+        val service: ApiServices = RetrofitInstance.getRetrofitInstance().create(ApiServices::class.java)
+        val call: Call<JsonObject>? = service.updatePreferences(updatePreferencesModel)
+        call!!.enqueue(object : Callback<JsonObject> {
+            override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
+                loader.dismissAlertDialog()
+                //startActivity(Intent(applicationContext, FeedFragment::class.java))
+                Toaster.showToast(applicationContext, "Preferences updated")
+            }
+
+            override fun onFailure(call: Call<JsonObject>, t: Throwable) {
+                loader.dismissAlertDialog()
+                Toaster.showToast(applicationContext, t.message.toString())
+            }
+        })
 
     }
 
@@ -115,6 +159,7 @@ class PreferencesActivity : AppCompatActivity() {
         })
 
     }
+
 
     private fun getUserInfo() {
 

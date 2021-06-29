@@ -1,42 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.user.activities.ChatActivity">
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_messages_ac_chat"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"></androidx.recyclerview.widget.RecyclerView>
+
     <LinearLayout
-        android:layout_margin="@dimen/global_margin"
-        android:layout_gravity="bottom"
-        android:gravity="center"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <EditText
-            android:layout_margin="@dimen/global_margin"
-            android:id="@+id/et_msg_ac_chat"
-            android:background="@drawable/edit_text"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_messages_ac_chat"
             android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="45dp"
-
-            android:padding="@dimen/global_padding"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            />
-        <ImageView
-            android:id="@+id/iv_send_ac_chat"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"></androidx.recyclerview.widget.RecyclerView>
+        <LinearLayout
             android:layout_margin="@dimen/global_margin"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:src="@drawable/send"></ImageView>
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_margin="@dimen/global_margin"
+                android:id="@+id/et_msg_ac_chat"
+                android:background="@drawable/edit_text"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+
+                android:padding="@dimen/global_padding"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                />
+            <ImageView
+                android:id="@+id/iv_send_ac_chat"
+                android:layout_margin="@dimen/global_margin"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:src="@drawable/send"></ImageView>
+        </LinearLayout>
     </LinearLayout>
+   <androidx.cardview.widget.CardView
+
+       android:id="@+id/cv_gpay_ac_chat"
+       android:layout_margin="@dimen/global_margin"
+       app:cardCornerRadius="100dp"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       >
+       <ImageView
+           android:layout_margin="@dimen/global_margin"
+           android:layout_width="56dp"
+           android:layout_height="56dp"
+           android:src="@drawable/paytm">
+
+       </ImageView>
+   </androidx.cardview.widget.CardView>
 
 
-</LinearLayout>
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

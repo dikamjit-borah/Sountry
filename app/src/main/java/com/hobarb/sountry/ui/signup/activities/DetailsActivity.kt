@@ -64,15 +64,15 @@ class DetailsActivity : AppCompatActivity() {
     private fun validateInputs() : Boolean {
         if(binding.etNameAcDetails.text.isNullOrBlank())
            binding.etNameAcDetails.error = "Enter a valid name"
-        if(binding.etUsernameAcDetails.text.isNullOrBlank())
+        else if(binding.etUsernameAcDetails.text.isNullOrBlank())
             binding.etUsernameAcDetails.error = "Enter a valid username"
-        if(binding.etPasswordAcDetails.text.isNullOrBlank())
+        else if(binding.etPasswordAcDetails.text.isNullOrBlank())
             binding.etPasswordAcDetails.error = "Enter a valid password"
-        if(binding.etPhoneAcDetails.text.isNullOrBlank())
+        else if(binding.etPhoneAcDetails.text.isNullOrBlank())
             binding.etPhoneAcDetails.error = "Enter a valid phone number"
-        if(binding.etEmailAcDetails.text.isNullOrBlank())
+        else if(binding.etEmailAcDetails.text.isNullOrBlank())
             binding.etEmailAcDetails.error = "Enter a valid email"
-        if(constants.UserDetails.GENDER == "")
+        else if(constants.UserDetails.GENDER == "")
         {
             Toast.makeText(applicationContext, "Select your gender", Toast.LENGTH_SHORT).show()
         }

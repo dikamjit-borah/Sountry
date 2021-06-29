@@ -1,17 +1,19 @@
 package com.hobarb.sountry.ui.user.activities
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.ImageView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 import com.hobarb.sountry.R
 import com.hobarb.sountry.adapters.MessageAdapter
-import com.hobarb.sountry.adapters.VideosAdapter
 import com.hobarb.sountry.models.MessageModel
 import com.hobarb.sountry.utilities.views.Loader
 import com.hobarb.sountry.utilities.views.Toaster
@@ -47,6 +49,10 @@ class ChatActivity : AppCompatActivity() {
         val now: LocalDateTime = LocalDateTime.now()
         val dateTime = (dtf.format(now))
 
+        findViewById<CardView>(R.id.cv_gpay_ac_chat).setOnClickListener{
+            openGpay()
+            Toaster.showToast(applicationContext, "Gpa")
+        }
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
@@ -54,37 +60,35 @@ class ChatActivity : AppCompatActivity() {
 
         loader.showAlertDialog()
 
-        mDatabase.child(probableRoom2).addListenerForSingleValueEvent(object:ValueEventListener{
-        override fun onDataChange(snapshot: DataSnapshot) {
-            if(snapshot.exists())
-            {
-                roomId = probableRoom2
-                setAdapter()
+        mDatabase.child(probableRoom2).addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    roomId = probableRoom2
+                    setAdapter()
+                } else {
+                    mDatabase.child(probableRoom1).addListenerForSingleValueEvent(object :
+                        ValueEventListener {
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            roomId = probableRoom1
+                            setAdapter()
+                        }
+
+                        override fun onCancelled(error: DatabaseError) {
+                            TODO("Not yet implemented")
+                        }
+
+
+                    })
+                }
+
+
             }
-            else
-            {
-                mDatabase.child(probableRoom1).addListenerForSingleValueEvent(object:ValueEventListener{
-                    override fun onDataChange(snapshot: DataSnapshot) {
-                        roomId = probableRoom1
-                        setAdapter()
-                    }
 
-                    override fun onCancelled(error: DatabaseError) {
-                        TODO("Not yet implemented")
-                    }
-
-
-                } )
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
             }
 
-
-         }
-
-         override fun onCancelled(error: DatabaseError) {
-          TODO("Not yet implemented")
-        }
-
-  })
+        })
 
 
 
@@ -110,6 +114,21 @@ class ChatActivity : AppCompatActivity() {
 
     }
 
+    private fun openGpay() {
+        var intent = packageManager.getLaunchIntentForPackage("net.one97.paytm")
+        if (intent != null) {
+            // We found the activity now start the activity
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        } else {
+            // Bring user to the market or let them choose an app?
+            intent = Intent(Intent.ACTION_VIEW)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            intent.data = Uri.parse("market://details?id=" + "net.one97.paytm")
+            startActivity(intent)
+        }
+    }
+
     private fun setAdapter() {
         mDatabase.child(roomId).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -122,7 +141,7 @@ class ChatActivity : AppCompatActivity() {
                     val msg = MessageModel(userId, message, dateTime)
                     list.add(msg)
                 }
-                val messageAdapter =  MessageAdapter(applicationContext, list)
+                val messageAdapter = MessageAdapter(applicationContext, list)
                 val linearLayoutManager =
                     LinearLayoutManager(applicationContext, RecyclerView.VERTICAL, false)
                 messages_rv.layoutManager = linearLayoutManager
@@ -136,6 +155,7 @@ class ChatActivity : AppCompatActivity() {
                 throw error.toException()
             }
         })
+
 
     }
 }

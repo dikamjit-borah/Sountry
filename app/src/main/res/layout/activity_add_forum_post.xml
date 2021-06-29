@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/global_margin"
+    android:orientation="vertical"
+    tools:context=".ui.user.activities.AddForumPostActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/global_margin"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter post details"
+            android:textColor="@color/primaryDark"
+            android:textSize="@dimen/card_title">
+
+        </TextView>
+
+        <View
+            android:layout_width="match_parent"
+
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="@color/primaryDark">
+
+        </View>
+    </LinearLayout>
+
+    <LinearLayout
+
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/global_margin"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/global_margin">
+
+            <EditText
+                android:id="@+id/et_userName_ac_addPostForum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_your_full_name"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/global_margin">
+
+            <EditText
+                android:id="@+id/et_userPhone_ac_addPostForum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_your_contact_number"
+                android:inputType="number"
+
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select your requirement"
+                android:textColor="@color/primaryDark"
+                android:textSize="@dimen/card_title">
+
+            </TextView>
+
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:background="@drawable/spinner_bg"
+            android:id="@+id/sp_categories_ac_addForumPost"
+            android:layout_width="match_parent"
+            android:layout_height="52dp">
+
+        </androidx.appcompat.widget.AppCompatSpinner>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/global_margin">
+
+            <EditText
+
+                android:id="@+id/et_postDescription_ac_addPostForum"
+
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Describe your requirements"
+                android:inputType="textEmailAddress"
+
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+
+        android:id="@+id/btn_upload_ac_addPostForum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="bottom"
+
+        android:layout_margin="@dimen/global_margin"
+
+
+        android:background="@drawable/button"
+        android:padding="@dimen/btn_padding"
+        android:text="Upload"
+        android:textColor="@color/white">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+</LinearLayout>

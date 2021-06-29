@@ -15,6 +15,9 @@ public class constants {
     public static String USER_ID_KEY = "USER_ID";
     public static String TOKEN_KEY = "TOKEN";
 
+    public static boolean userCameFromProfileFragment = false;
+
+    public static ArrayList<String> forum_categories = new ArrayList<>(Arrays.asList("Guitarist", "Drummer", "Singer", "Bassist", "Duet Partner", "Band", "Instructor", "Teacher"));
 
     public static ArrayList<String> genres = new ArrayList<>( Arrays.asList(
             "Classical",
