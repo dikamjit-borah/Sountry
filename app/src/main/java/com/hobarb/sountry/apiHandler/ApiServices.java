@@ -1,8 +1,10 @@
 package com.hobarb.sountry.apiHandler;
 
 import com.google.gson.JsonObject;
+import com.hobarb.sountry.models.ForumPostModel;
 import com.hobarb.sountry.models.NotificationsModel;
 import com.hobarb.sountry.models.ProfileModel;
+import com.hobarb.sountry.models.UpdatePreferencesModel;
 import com.hobarb.sountry.models.UploadVideosModel;
 import com.hobarb.sountry.models.UserModel;
 import com.hobarb.sountry.models.VideosModel;
@@ -69,5 +71,17 @@ public interface ApiServices {
 
     @GET("api/connect/check")
     Call<JsonObject> getCheckConnection(@Query("connect_with_id") long connect_with_id, @Query("request_by_id") long request_by_id);
+
+
+    @GET("api/user/forum")
+    Call<ForumPostModel> getForumPosts();
+
+
+    @POST("api/user/add_forum_post")
+    Call<JsonObject> postAddForumPost(@Body JsonObject jsonObject);
+
+
+    @PUT("api/user/preferences")
+    Call<JsonObject> updatePreferences(@Body UpdatePreferencesModel updatePreferencesModel);
 
 }

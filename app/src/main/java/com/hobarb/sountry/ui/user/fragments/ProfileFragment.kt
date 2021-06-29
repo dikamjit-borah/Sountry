@@ -5,6 +5,7 @@ import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.RequiresApi
@@ -15,6 +16,7 @@ import com.hobarb.sountry.apiHandler.ApiServices
 import com.hobarb.sountry.apiHandler.RetrofitInstance
 import com.hobarb.sountry.models.ProfileModel
 import com.hobarb.sountry.ui.login.LoginActivity
+import com.hobarb.sountry.ui.signup.activities.PreferencesActivity
 import com.hobarb.sountry.utilities.SharedPrefs
 import com.hobarb.sountry.utilities.constants
 import com.hobarb.sountry.utilities.views.InflaterFunctions
@@ -27,8 +29,13 @@ import retrofit2.Response
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     lateinit var loader: Loader
+     var user_id:Long = 0
     //lateinit var binding: FragmentProfileBinding
 
+    override fun onResume() {
+        super.onResume()
+        loadProfile()
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -36,14 +43,23 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         loader = Loader(context)
         loader.showAlertDialog()
 
-        val user_id = SharedPrefs(context).readPrefs(constants.USER_ID_KEY).toLong()
+         user_id = SharedPrefs(context).readPrefs(constants.USER_ID_KEY).toLong()
         val logout = view.findViewById<AppCompatButton> (R.id.btn_logout_frag_prof)
         logout.setOnClickListener {
             SharedPrefs(context).writePrefs(constants.TOKEN_KEY, "")
             startActivity(Intent(context, LoginActivity::class.java))
             activity!!.finish()
         }
+        view.findViewById<ImageView>(R.id.iv_editPrefs_frag_prof).setOnClickListener {
+            constants.userCameFromProfileFragment = true
+            startActivity(Intent(context, PreferencesActivity::class.java))
+        }
 
+
+
+    }
+
+    private fun loadProfile() {
         val service: ApiServices = RetrofitInstance.getRetrofitInstance().create(ApiServices::class.java)
         val call: Call<List<ProfileModel>>? = service.getUserProfile(user_id)
         call!!.enqueue(object : Callback<List<ProfileModel>> {
@@ -58,9 +74,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                 loader.dismissAlertDialog()
             }
         })
-
-
-
     }
 
     private fun updateViews(profileModel: ProfileModel) {

@@ -2,7 +2,8 @@
 
 import android.content.Intent
 import android.os.Bundle
-import android.provider.MediaStore
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.Toast
@@ -15,7 +16,7 @@ import com.hobarb.sountry.ui.user.fragments.NotificationsFragment
 import com.hobarb.sountry.ui.user.fragments.ProfileFragment
 
 
-class DashboardActivity : AppCompatActivity() {
+ class DashboardActivity : AppCompatActivity() {
     private val REQUEST_VIDEO_CAPTURED:Int  = 1001
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,6 +53,24 @@ class DashboardActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.toolbar_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id: Int = item.getItemId()
+        return when (id) {
+            R.id.item_forum -> {
+                startActivity(Intent(applicationContext, ForumActivity::class.java))
+                return true
+
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
 
